@@ -1,23 +1,19 @@
 int maxProfit(int* prices, int pricesSize){
-    int last = 10001;
-    int currentBuy = 0;
+    int buyIndex = 0;
     int largestProfit = 0;
-    int largestDifference = 0;
-    int currentDifference = 0;
-    for (int i = 0, len = pricesSize - 1; i < len; i++) {
-        currentBuy = prices[i];
-        if (currentBuy < last) {
-            largestDifference = 0;
-            for (int j = i + 1; j < pricesSize; j++) {
-                currentDifference = prices[j] - currentBuy;
-                if (currentDifference > largestDifference) {
-                    largestDifference = currentDifference;
-                }
+    int valueAtBuyIndex = prices[0];
+    int valueAtSellIndex = 0;
+    int currentProfit = 0;
+    for (int sellIndex = 1; sellIndex < pricesSize; sellIndex++) {
+        valueAtSellIndex = prices[sellIndex];
+        if (valueAtSellIndex > valueAtBuyIndex) {
+            currentProfit = valueAtSellIndex - valueAtBuyIndex;
+            if (currentProfit > largestProfit) {
+                largestProfit = currentProfit;
             }
-            if (largestDifference > largestProfit) {
-                largestProfit = largestDifference;
-            }
-            last = currentBuy;
+        } else {
+            buyIndex = sellIndex;
+            valueAtBuyIndex = valueAtSellIndex;
         }
     }
     return largestProfit;
