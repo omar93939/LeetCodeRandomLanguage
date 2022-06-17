@@ -24,7 +24,7 @@
 
 // "var" appears slightly faster than "let" outside of the loops on leetcode. Not sure why.
 // This phenomenon should likely not be given too much attention though, and both are fine to use.
-// I would likely usually use "let" to account for scope, but in this case it appeared beneficial to use "var".
+// I would likely usually use "let" to account for scope, but in this specific case it appeared beneficial to use "var".
 
 /**
  * @param {number[]} nums
