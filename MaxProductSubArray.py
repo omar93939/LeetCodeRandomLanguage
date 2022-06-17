@@ -26,6 +26,8 @@
 
 
 # Bit convoluted, but it runs decently fast
+from typing import List
+
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         max = nums[0]
